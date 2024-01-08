@@ -32,7 +32,8 @@ export default function EnviaLance({ enviaLance, cor }) {
   return <BlurView intensity={Platform.OS === 'ios' ? 10 : 100} style={estilos.fundo} tint="light">
     {!!erro && <Text style={estilos.erro}>{erro}</Text>}
     {!!sucesso && <Text style={estilos.sucesso}>{sucesso}</Text>}
-    <TextInput 
+    <TextInput
+      testID="input" 
       value={valor} 
       onChangeText={setValor}
       placeholder="R$"
@@ -41,6 +42,7 @@ export default function EnviaLance({ enviaLance, cor }) {
       keyboardType="decimal-pad"
     />
     <TouchableOpacity 
+      accessibilityHint='Enviar lance'
       onPress={validaEnvio}
       disabled={enviando}
       style={estilos.botao}>
